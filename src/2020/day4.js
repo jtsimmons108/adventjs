@@ -6,6 +6,7 @@ function getPassports(input){
     let passports = [];
     input.map(entry => {
         fields = entry.split(/\s/);
+        console.log(fields)
         passport = {}
         fields.forEach(field => {
             [key, value] = field.split(':');
@@ -17,7 +18,7 @@ function getPassports(input){
 }
 
 function hasRequiredFields(passport){
-    fields = Object.keys(passport);
+    let fields = Object.keys(passport);
     return fields.length == 8
                 || fields.length == 7 && !fields.includes('cid');
 }
