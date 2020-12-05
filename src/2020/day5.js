@@ -9,7 +9,7 @@ function findZone(directions, upper){
 
     for(let letter of directions){
         if (letter == upper){
-            left = Math.floor((left + right) / 2) + 1;
+            left = Math.ceil((left + right) / 2);
         }else{
             right = Math.floor((left + right) / 2);
         }
@@ -23,11 +23,13 @@ function getSeatId(directions){
     return row * 8 + col;
 }
 
+function getSeatIdBinary(directions){
+    return parseInt(directions.replace(/[FL]/g,'0').replace(/[BR]/g, '1'), 2);
+}
+
 let seatIds = input.map(line => getSeatId(line)).sort((a, b) => a-b);
 
 let part1 = seatIds[seatIds.length - 1];
-let part2 = seatIds.filter((value, index) => {
-    return seatIds[index] + 1 != seatIds[index + 1]
-})[0] + 1;
+let part2 = seatIds.find((_, index) => seatIds[index] + 1 != seatIds[index + 1]) + 1;
 
 console.log(part1, part2)
