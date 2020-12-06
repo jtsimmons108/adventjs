@@ -2,7 +2,6 @@ const utils = require('../advent-utils');
 require('constants');
 const input = utils.readInputAsList('../../inputs/2020/day5.txt');
 
-
 function findZone(directions, upper){
     let left = 0;
     let right = Math.pow(2, directions.length) - 1;
@@ -27,9 +26,9 @@ function getSeatIdBinary(directions){
     return parseInt(directions.replace(/[FL]/g,'0').replace(/[BR]/g, '1'), 2);
 }
 
-let seatIds = input.map(line => getSeatId(line)).sort((a, b) => a-b);
+const seatIds = input.map(line => getSeatId(line)).sort((a, b) => a-b);
 
-let part1 = seatIds[seatIds.length - 1];
-let part2 = seatIds.find((_, index) => seatIds[index] + 1 != seatIds[index + 1]) + 1;
+const part1 = seatIds[seatIds.length - 1];
+const part2 = seatIds.find((_, index) => seatIds[index] + 1 != seatIds[index + 1]) + 1;
 
 console.log(part1, part2)
