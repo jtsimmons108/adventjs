@@ -22,25 +22,25 @@ while(containsSummingPair(preamble, input[index])){
     index++;
 }
 const invalid = input[index];
+
+let startIndex = 0;
+let endIndex = 0;
+let sum = input[startIndex];
 console.log(invalid);
 
-Array.prototype.sum = function() {return this.reduce((a, b) => a + b)};
-Array.prototype.max = function() {return this.reduce((a, b) => Math.max(a, b))}
-Array.prototype.min = function() {return this.reduce((a, b) => Math.min(a, b))}
-
-for (let startIndex in input){
-    const range = [input[startIndex]];
-    let endIndex = +startIndex + 1;
-    while (range.sum() < invalid){
-        range.push(input[endIndex]);
+while(sum != invalid){
+    endIndex = startIndex + 1;
+    while(sum < invalid){
+        sum += input[endIndex];
         endIndex++;
     }
-
-    if(range.sum() == invalid){
-        console.log(range.min() + range.max());
-        break;
+    if(sum > invalid){
+        startIndex++;
+        sum = input[startIndex];
     }
 }
 
+const contiguous = input.slice(startIndex, endIndex);
+console.log(Math.min(...contiguous) + Math.max(...contiguous));
 
 
