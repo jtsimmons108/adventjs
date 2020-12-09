@@ -21,12 +21,13 @@ while(containsSummingPair(preamble, input[index])){
     preamble.push(input[index]);
     index++;
 }
+
 const invalid = input[index];
+console.log(invalid);
 
 let startIndex = 0;
 let endIndex = 0;
 let sum = input[startIndex];
-console.log(invalid);
 
 while(sum != invalid){
     endIndex = startIndex + 1;
