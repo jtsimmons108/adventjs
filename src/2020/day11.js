@@ -90,8 +90,3 @@ for (let part of [1,2]){
     }
     console.log([...getGridString(grid)].filter(c => c === '#').length);
 }
-
-
-
-
-
