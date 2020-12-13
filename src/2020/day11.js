@@ -15,6 +15,7 @@ function getFirstOccupiedNeighborCount(row, col, grid){
 function getFirstVisibleNeighbors(row, col, grid){
     return deltas.map(([dr, dc]) => getFirstNeighborInDirection(row, col, dr, dc, grid))
 }
+
 function getFirstNeighborInDirection(row, col, dr, dc, grid){
     row += dr;
     col += dc;
