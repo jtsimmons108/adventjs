@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-
 function readInputAsString(filePath){
     try{
         return fs.readFileSync(filePath, 'utf-8');

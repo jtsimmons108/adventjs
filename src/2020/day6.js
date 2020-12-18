@@ -1,5 +1,5 @@
 const utils = require('../advent-utils');
-const input = utils.readInputAsString('../../inputs/2020/test.txt')
+const input = utils.readInputAsString('../../inputs/2020/day6.txt')
                 .split('\n\n');
 
 function intersect(a, b){
