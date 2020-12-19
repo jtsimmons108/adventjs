@@ -2,15 +2,15 @@ const utils = require('../advent-utils');
 const input = utils.readInputAsList('../../inputs/2020/day17.txt');
 
 const fields = ['x', 'y', 'z', 'w'];
-Object.prototype.point3D = function() {return `(${this.x}, ${this.y}, ${this.z})`};
-Object.prototype.point4D = function(){return `(${this.x}, ${this.y}, ${this.z}, ${this.w})`};
-
 String.prototype.extractPoint = function(){
     return Object.fromEntries(
                     this.match(/(-?\d+)/g)
                         .map(Number)
                         .map((n , i) => [fields[i], n]));
 }
+
+Object.prototype.point3D = function() {return `(${this.x}, ${this.y}, ${this.z})`};
+Object.prototype.point4D = function() {return `(${this.x}, ${this.y}, ${this.z}, ${this.w})`};
 
 function getNeighbors(point){
     let p = point.extractPoint();
