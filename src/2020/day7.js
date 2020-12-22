@@ -1,5 +1,4 @@
 const utils = require('../advent-utils');
-const { join } = require('path');
 const input = utils.readInputAsList('../../inputs/2020/day7.txt');
 
 Array.prototype.sum = function() { return this.reduce((a, b) => a + b) };
