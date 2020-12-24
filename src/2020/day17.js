@@ -43,11 +43,11 @@ function findActiveCubes(active, cycles){
         let newActive = new Set();
         Object.entries(neighborCounts)
                     .filter(([point, count]) => !active.has(point) && count == 3)
-                    .forEach(([point, count])=> newActive.add(point));
+                    .forEach(([point,])=> newActive.add(point));
 
         Object.entries(validNeighbors)
-                    .filter(([point, count]) => count == 2 || count ==3)
-                    .forEach(([point, count]) => newActive.add(point));
+                    .filter(([,count]) => count == 2 || count ==3)
+                    .forEach(([point,]) => newActive.add(point));
 
         active = newActive;
     }
