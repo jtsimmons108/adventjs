@@ -13,9 +13,7 @@ function playGame(start, limit, rounds){
     }
     for(let i = 0; i < start.length; i++){
         let next = i == start.length - 1 ? 0 : i + 1;
-        let prev = i == 0 ? start.length - 1 : i - 1;
         start[i].next = start[next];
-        start[i].prev = start[prev];
     }
     start.forEach(c => cups[c.value] = c);
 
@@ -27,16 +25,13 @@ function playGame(start, limit, rounds){
         let third = second.next;
         let picked = new Set([first.value, second.value, third.value]);
         current.next = third.next;
-        third.next.prev = current;
         let target = current.value == 1 ? input.length : current.value - 1;
         while (picked.has(target)){
             target = target == 1 ? input.length : target - 1;
         }
         let destination = cups[target];
         let temp = destination.next;
-        first.prev = destination;
         destination.next = first;
-        temp.prev = third;
         third.next = temp;
         current = current.next;
     }
