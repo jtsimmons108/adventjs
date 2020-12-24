@@ -1,6 +1,5 @@
 const utils = require('../advent-utils');
 const Cup = require('./cup');
-const start = new Date().getTime();
 
 let input = utils.readInputAsString('../../inputs/2020/day23.txt')
                     .split('').map(Number).map(n => new Cup(n));
