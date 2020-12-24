@@ -27,7 +27,7 @@ function playGame(start, limit, rounds){
         current.next = third.next;
         let target = current.value == 1 ? input.length : current.value - 1;
         while (picked.has(target)){
-            target = target == 1 ? input.length : target - 1;
+            target = target == 1 ? start.length : target - 1;
         }
         let destination = cups[target];
         let temp = destination.next;
