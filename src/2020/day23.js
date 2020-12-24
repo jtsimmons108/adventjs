@@ -8,15 +8,14 @@ let input = utils.readInputAsString('../../inputs/2020/day23.txt')
 
 function playGame(start, limit, rounds){
     const cups = {};
-    start.forEach(c => cups[c.value] = c);
     for(let i = start.length + 1; i <= limit; i++){
         start.push(new Cup(i));
     }
-    for(let i = 0; i < input.length; i++){
-        let next = i == input.length - 1 ? 0 : i + 1;
-        let prev = i == 0 ? input.length - 1 : i - 1;
-        input[i].next = input[next];
-        input[i].prev = input[prev];
+    for(let i = 0; i < start.length; i++){
+        let next = i == start.length - 1 ? 0 : i + 1;
+        let prev = i == 0 ? start.length - 1 : i - 1;
+        start[i].next = start[next];
+        start[i].prev = start[prev];
     }
     start.forEach(c => cups[c.value] = c);
 
