@@ -25,7 +25,7 @@ input.forEach(line => {
 
 });
 
-let total = 0;
+let part1 = 0;
 let possible = {};
 for (let ing of Object.keys(ingredients)){
     let current = ingredients[ing];
@@ -35,7 +35,7 @@ for (let ing of Object.keys(ingredients)){
         }
     }
     if (Object.keys(current['allergens']).length == 0){
-        total += current.count;
+        part1 += current.count;
     }else{
         possible[ing] = Object.keys(current['allergens']);
     }
@@ -55,10 +55,10 @@ while(found.size != allergenCount){
     }
 }
 
-let sorted = Object.entries(finalAllergens)
+let part2 = Object.entries(finalAllergens)
                 .sort(([,a1], [,a2]) => a1.localeCompare(a2))
                 .map(([i, a]) => i)
                 .join(',');
            
-console.log(total);
-console.log(sorted);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

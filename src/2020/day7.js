@@ -47,5 +47,9 @@ input.forEach(line => {
             
 });
 
-console.log(Object.keys(allBags).filter(holdsShinyGoldBag).length);
-console.log(getBagsHeld('shiny gold'));
+let part1 = Object.keys(allBags).filter(holdsShinyGoldBag).length;
+let part2 = getBagsHeld('shiny gold')
+
+
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

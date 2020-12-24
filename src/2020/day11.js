@@ -81,7 +81,7 @@ const startingGrid = utils.readInputAsList('../../inputs/2020/day11.txt').map(li
 const deltas = [[-1,-1], [-1, 0], [-1, 1], [1, -1], [1, 0], [1, 1], [0, -1], [0, 1]];
 const rows = startingGrid.length;
 const cols = startingGrid[0].length
-
+let part1, part2;
 for (let part of [1,2]){
     let grid = startingGrid.map(row => row.slice());
     const seen = new Set();
@@ -89,5 +89,14 @@ for (let part of [1,2]){
         seen.add(getGridString(grid));
         grid = changeState(grid, part);
     }
-    console.log([...getGridString(grid)].filter(c => c === '#').length);
+    let active = [...getGridString(grid)].filter(c => c === '#').length;
+    if (part == 1){
+        part1 = active;
+    }else{
+        part2 = active;
+    }
 }
+
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);
+

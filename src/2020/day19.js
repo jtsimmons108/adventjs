@@ -1,11 +1,10 @@
 const utils = require('../advent-utils');
-const start = new Date().getTime();
 const input = utils.readInputAsString('../../inputs/2020/day19.txt');
 
-[rules, messages] = input.split('\n\n').map(section => section.split('\n'));
-patterns = Array(rules.length);
+let [rules, messages] = input.split('\n\n').map(section => section.split('\n'));
+const patterns = Array(rules.length);
 
-known = {}
+const known = {}
 rules.forEach(rule => {
     [n, pattern] = rule.split(': ');
     if (pattern.includes('\"')){
@@ -42,10 +41,10 @@ while(Object.keys(known).length < patterns.length){
         }
     }
 }
-valid = new Set(known[0])
-starts = new Set(known[42]);
-ends = new Set(known[31]);
-matched1 = messages.filter(m => valid.has(m)).length;
+let valid = new Set(known[0])
+let starts = new Set(known[42]);
+let ends = new Set(known[31]);
+let part1 = messages.filter(m => valid.has(m)).length;
 messages = messages.filter(m => m.length > 24);
 function testLonger(m){
     let i = 0; 
@@ -67,6 +66,6 @@ function testLonger(m){
     return true;
 }
 
-matched2 = matched1 + messages.filter(testLonger).length;
-console.log(new Date().getTime() - start);
-console.log(matched1, matched2);
+part2 = part1 + messages.filter(testLonger).length;
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

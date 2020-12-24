@@ -66,5 +66,8 @@ input.forEach((line, r) => {
     });
 });
 
-console.log(findActiveCubes(active3D, 6));
-console.log(findActiveCubes(active4D, 6));
+let part1 = findActiveCubes(active3D, 6);
+let part2 = findActiveCubes(active4D, 6);
+
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

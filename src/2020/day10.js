@@ -10,6 +10,7 @@ for(let i = 1; i < adapters.length; i++){
     ones += adapters[i] - adapters[i-1] === 1;
     threes += adapters[i] - adapters[i-1] === 3;
 }
+let part1 = ones * threes;
 
 const paths = {}
 adapters.forEach(adapter => {
@@ -32,6 +33,8 @@ function getNumPathsFrom(target){
     return total;
 }
 
-console.log(ones * threes);
-console.log(getNumPathsFrom(0));
+let part2 = getNumPathsFrom(0);
+
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);
 

@@ -31,4 +31,5 @@ const seatIds = input.map(line => getSeatId(line)).sort((a, b) => a-b);
 const part1 = seatIds[seatIds.length - 1];
 const part2 = seatIds.find((_, index) => seatIds[index] + 1 != seatIds[index + 1]) + 1;
 
-console.log(part1, part2)
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

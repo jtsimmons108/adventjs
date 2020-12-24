@@ -3,7 +3,7 @@ const input = utils.readInputAsString('../../inputs/2020/day6.txt')
                 .split('\n\n');
 
 function intersect(a, b){
-    return new Set([...a].filter(l => b.has(l)))
+    return new Set([...a].filter(e => b.has(e)))
 }
 
 Array.prototype.sum = function() { return this.reduce((a, b) => a + b) };
@@ -19,4 +19,6 @@ const part2 = input.map(group => {
 }).sum();
 
 
-console.log(part1, part2)
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);
+

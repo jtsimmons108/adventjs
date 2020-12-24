@@ -13,18 +13,20 @@ const busses  = Object.entries(input[1].split(',')).filter(([n, e]) => e !== 'x'
                         });
 
 const myBus = busses.reduce((b1, b2) => b1.waitTime < b2.waitTime ? b1 : b2);
-console.log(myBus.busId * myBus.waitTime);
+let part1 = myBus.busId * myBus.waitTime;
 
-let time = 0;
+let part2 = 0;
 let inc = busses[0].busId;
 let i = 1;
 
 while (i < busses.length){
-    time += inc;
-    if (time % busses[i].busId === busses[i].targetMod){
+    part2 += inc;
+    if (part2 % busses[i].busId === busses[i].targetMod){
         inc *= busses[i].busId;
         i++;
     }
 }
 
-console.log(time);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);
+

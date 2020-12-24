@@ -6,7 +6,6 @@ function getPassports(input){
     let passports = [];
     input.map(entry => {
         fields = entry.split(/\s/);
-        console.log(fields)
         passport = {}
         fields.forEach(field => {
             [key, value] = field.split(':');
@@ -68,4 +67,5 @@ let part2 = validPassports
                     .filter(passport => meetsRequirements(passport))
                     .length;
 
-console.log(part1, part2);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

@@ -1,8 +1,6 @@
 const utils = require('../advent-utils');
-const start = new Date().getTime();
+
 const input = utils.readInputAsList('../../inputs/2020/day18.txt');
-
-
 function eval(string){
     const parts = string.split(' ');
     let ans = Number(parts[0]);
@@ -97,8 +95,6 @@ function findMaxDepth(string){
 
 
 let part1 = input.map(line => evalWithParenthesis(line)).reduce((a, b) => a + b);
-
 let part2 = input.map(line => evalWithParenthesisPlusFirst(line)).reduce((a, b) => a + b);
-console.log(new Date().getTime() - start);
-console.log(part1);
-console.log(part2);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

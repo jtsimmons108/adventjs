@@ -64,7 +64,7 @@ let part2 = Object.keys(possible).filter(key => key.includes('departure'))
                         .map(key => myTicket[possible[key]])
                         .reduce((a, b) => a * b);
 
-console.log('Day 16')
+
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

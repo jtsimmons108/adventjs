@@ -21,6 +21,7 @@ while (count < 30000000){
     count++;
     prev = next;
 }
+let part2 = prev;
 
-console.log(part1);
-console.log(prev);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

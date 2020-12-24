@@ -3,7 +3,8 @@ const input = utils.readInputAsList('../../inputs/2020/day3.txt')
 
 const slopes = [[1,1], [3,1], [5,1], [7,1], [1,2]];
 const cols = input[0].length;
-let product = 1;
+
+let part1, part2 = 1;
 
 slopes.forEach(slope => {
     [dc, dr] = slope;
@@ -13,11 +14,14 @@ slopes.forEach(slope => {
             trees++;
         }
     });
-    console.log(slope, trees);
-    product *= trees;
+    if(dc == 3){
+        part1 = trees;
+    }
+    part2 *= trees;
 });
 
-console.log(product)
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);
 
 
 

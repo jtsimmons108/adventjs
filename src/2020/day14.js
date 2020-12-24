@@ -57,5 +57,8 @@ input.forEach(line => {
     }
 });
 
-console.log(Object.values(mem1).reduce((a, b) => a + b));
-console.log(Object.values(mem2).reduce((a, b) => a + b));
+let part1 = Object.values(mem1).reduce((a, b) => a + b);
+let part2 = Object.values(mem2).reduce((a, b) => a + b);
+
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

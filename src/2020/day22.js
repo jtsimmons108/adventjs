@@ -7,14 +7,14 @@ function playGame(player1, player2, recursive){
     while (player1.length > 0 && player2.length > 0){
         let gameState = player1.join(',') + 'vs' + player2.join(',');
         if (recursive && hands.has(gameState)){
-            return [[],1];
+            return [,1];
         }
         hands.add(gameState);
         let p1Card = player1.shift();
         let p2Card = player2.shift();
         let handWinner = 0;
         if (recursive && player1.length >= p1Card && player2.length >= p2Card){
-            let [win, res] = playGame(player1.slice(0, p1Card),
+            let [,res] = playGame(player1.slice(0, p1Card),
                                         player2.slice(0, p2Card), true);
             handWinner = res;
         }
@@ -41,5 +41,7 @@ function calculateScore(hand){
 
 let [part1Hand, part1Winner] = playGame([...player1], [...player2], false);
 let [part2Hand, part2Winner] = playGame([...player1], [...player2], true);
-console.log(part1Winner, calculateScore(part1Hand))
-console.log(part2Winner, calculateScore(part2Hand))
+let part1 = calculateScore(part1Hand);
+let part2 = calculateScore(part2Hand);
+console.log('Part 1: ', part1);
+console.log('Part 2: ', part2);

@@ -3,8 +3,8 @@ const VM = require('./vm');
 const input = utils.readInputAsList('../../inputs/2020/day8.txt')
 
 const machine = new VM(input);
-console.log(machine.run().finalValue);
-
+let part1 = machine.run().finalValue;
+let part2;
 [...Array(input.length).keys()].forEach((index) => {
     const current = input[index];
     if (!current.includes('acc')){
@@ -15,7 +15,11 @@ console.log(machine.run().finalValue);
         const vm = new VM(instructions);
         
         if(vm.run().isTerminated){
-            console.log(vm.finalValue);
+            part2 = vm.finalValue;
         }
     }
 });
+
+
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

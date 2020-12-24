@@ -52,5 +52,7 @@ input.forEach(line => {
             break;
     }
 });
-console.log('Part 1:', Math.abs(x1) + Math.abs(y1))
-console.log('Part 2:', Math.abs(x2) + Math.abs(y2))
+let part1 = Math.abs(x1) + Math.abs(y1);
+let part2 = Math.abs(x2) + Math.abs(y2);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);

@@ -1,13 +1,7 @@
 const utils = require('../advent-utils');
 
 function countLetters(password, letter){
-    let count = 0;
-    for (let l of password){
-        if (l == letter){
-            count++;
-        }
-    }
-    return count;
+    return [...password].filter(l => l == letter).length;
 }
 
 const input = utils.readInputAsList('../../inputs/2020/day2.txt');
@@ -29,4 +23,5 @@ for (let line of input){
     }
 
 }
-console.log(part1, part2);
+console.log('Part 1:', part1);
+console.log('Part 2:', part2);
