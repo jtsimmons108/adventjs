@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsString('../../inputs/2020/day19.txt');
 
 let [rules, messages] = input.split('\n\n').map(section => section.split('\n'));
@@ -67,5 +68,7 @@ function testLonger(m){
 }
 
 part2 = part1 + messages.filter(testLonger).length;
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

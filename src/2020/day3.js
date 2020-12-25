@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day3.txt')
 
 const slopes = [[1,1], [3,1], [5,1], [7,1], [1,2]];
@@ -19,7 +20,8 @@ slopes.forEach(slope => {
     }
     part2 *= trees;
 });
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

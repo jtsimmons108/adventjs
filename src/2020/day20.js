@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const Piece = require('./piece');
 const input = utils.readInputAsString('../../inputs/2020/day20.txt').split('\n\n');
 
@@ -96,5 +97,7 @@ while (seaMonsters == 0){
 
 
 let part2 = finished.map(row => row.filter(c => c == '#').length).reduce((a, b) => a + b);
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

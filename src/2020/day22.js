@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsString('../../inputs/2020/day22.txt').split('\n\n');
 let [player1, player2] = input.map(line => line.split('\n').slice(1).map(Number));
 
@@ -43,5 +44,7 @@ let [part1Hand, part1Winner] = playGame([...player1], [...player2], false);
 let [part2Hand, part2Winner] = playGame([...player1], [...player2], true);
 let part1 = calculateScore(part1Hand);
 let part2 = calculateScore(part2Hand);
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1: ', part1);
 console.log('Part 2: ', part2);

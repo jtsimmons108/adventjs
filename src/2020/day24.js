@@ -1,6 +1,6 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 let input = utils.readInputAsList('../../inputs/2020/day24.txt');
-
 function getMoves(line){
     moves = []
     index = 0;
@@ -34,6 +34,7 @@ for(let i = 0; i < 100; i++){
     const newGrid = {};
     const neighborCounts = {};
     const countedNeighbors = {};
+    let tracked = new Set(Object.keys(grid));
     Object.keys(grid).forEach(p => {
         let status = grid[p] ? grid[p] : 0;
         if (!neighborCounts[p]){
@@ -44,10 +45,13 @@ for(let i = 0; i < 100; i++){
             let n = [x + dx, y + dy, z + dz]
             let nStatus = grid[n.join(',')] ? grid[n.join(',')] : 0
             neighborCounts[p][nStatus]++;
-            if (!countedNeighbors[n.join(',')]){
-                countedNeighbors[n.join(',')] = [0,0]
+            if(!tracked.has(n.join(','))){
+                if (!countedNeighbors[n.join(',')]){
+                    countedNeighbors[n.join(',')] = [0,0]
+                }
+                countedNeighbors[n.join(',')][status]++;
             }
-            countedNeighbors[n.join(',')][status]++;
+           
             
         });
     });
@@ -55,21 +59,17 @@ for(let i = 0; i < 100; i++){
     Object.entries(grid)
             .forEach(([point, status]) => {
                 let blackNeighbors = neighborCounts[point][1];
-                let newStatus;
-                if(status == 0){
-                    newStatus =  blackNeighbors == 2 ? 1 : 0;
-                }else{
-                    newStatus = blackNeighbors == 0 || blackNeighbors > 2 ? 
-                                        0 : 1;
-                }
-                if(newStatus == 1){
+                let newStatus = status == 0 ? 
+                            blackNeighbors == 2 ? 1 : 0 :
+                            blackNeighbors == 0 || blackNeighbors > 2 ? 0 : 1;
+                
+                            if(newStatus == 1){
                     newGrid[point] = newStatus;
                 }
                 
             });
-    let tracked = new Set(Object.keys(grid));
+    
     Object.keys(countedNeighbors)
-            .filter(point => !tracked.has(point))
             .forEach(point => {
                 if (countedNeighbors[point][1] == 2){
                     newGrid[point] = 1;
@@ -79,6 +79,7 @@ for(let i = 0; i < 100; i++){
     grid = newGrid;
 }
 let part2 = Object.values(grid).filter(c => c == 1).length;
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1: ', part1);
 console.log('Part 2: ', part2);

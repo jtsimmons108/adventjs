@@ -1,4 +1,4 @@
-for day in {1..24}
+for day in {1..25}
 do
     echo ==================================
     echo Day $day

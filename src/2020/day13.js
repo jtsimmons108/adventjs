@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day13.txt');
 
 const arrivalTime = Number(input[0]);
@@ -26,7 +27,8 @@ while (i < busses.length){
         i++;
     }
 }
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

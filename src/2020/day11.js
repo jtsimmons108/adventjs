@@ -1,5 +1,5 @@
 const utils = require('../advent-utils');
-
+const start = new Date().getTime();
 function isValidPos(row, col){
     return row >= 0 && row < rows && col >= 0 && col < cols;
 }
@@ -96,7 +96,8 @@ for (let part of [1,2]){
         part2 = active;
     }
 }
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

@@ -1,7 +1,6 @@
 const utils = require('../advent-utils');
-const input = utils.readInputAsString('../../inputs/2020/day16.txt').split('\n\n');
-
 const start = new Date().getTime();
+const input = utils.readInputAsString('../../inputs/2020/day16.txt').split('\n\n');
 [ranges, myTicket, nearBy] = input;
 nearBy = nearBy.split('\n').slice(1).map(line => line.split(',').map(Number));
 myTicket = myTicket.split('\n')[1].split(',').map(Number);
@@ -64,7 +63,8 @@ let part2 = Object.keys(possible).filter(key => key.includes('departure'))
                         .map(key => myTicket[possible[key]])
                         .reduce((a, b) => a * b);
 
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

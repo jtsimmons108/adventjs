@@ -1,6 +1,6 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const Cup = require('./cup');
-
 let input = utils.readInputAsString('../../inputs/2020/day23.txt')
                     .split('').map(Number).map(n => new Cup(n));
 
@@ -48,6 +48,7 @@ for(let i = 0; i < input.length - 1; i++){
 let second = playGame(input, 1000000, 10000000);
 let target = second[1];
 let part2 = target.next.value * target.next.next.value;
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1: ', part1);
 console.log('Part 2: ', part2);

@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day9.txt').map(Number);
 
 function containsSummingPair(preamble, target){
@@ -43,7 +44,8 @@ while(sum != invalid){
 
 const contiguous = input.slice(startIndex, endIndex);
 let part2 = Math.min(...contiguous) + Math.max(...contiguous);
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

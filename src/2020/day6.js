@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsString('../../inputs/2020/day6.txt')
                 .split('\n\n');
 
@@ -18,7 +19,8 @@ const part2 = input.map(group => {
                 .size;
 }).sum();
 
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

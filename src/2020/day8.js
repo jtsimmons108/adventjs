@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const VM = require('./vm');
 const input = utils.readInputAsList('../../inputs/2020/day8.txt')
 
@@ -20,6 +21,7 @@ let part2;
     }
 });
 
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

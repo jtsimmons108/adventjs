@@ -60,5 +60,8 @@ let part2 = Object.entries(finalAllergens)
                 .map(([i, a]) => i)
                 .join(',');
            
+
+const end = new Date().getTime();
+console.log('Run Time:', end - start);                
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

@@ -1,5 +1,5 @@
 const utils = require('../advent-utils')
-
+const start = new Date().getTime();
 const expenses = utils.readInputAsList('../../inputs/2020/day1.txt')
                     .map(Number)
 let part1, part2;
@@ -15,6 +15,7 @@ for(let i = 0; i < expenses.length; i++){
         }
     }
 }
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

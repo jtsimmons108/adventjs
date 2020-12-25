@@ -1,5 +1,5 @@
 const utils = require('../advent-utils');
-
+const start = new Date().getTime();
 function countLetters(password, letter){
     return [...password].filter(l => l == letter).length;
 }
@@ -23,5 +23,7 @@ for (let line of input){
     }
 
 }
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

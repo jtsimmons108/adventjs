@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day10.txt');
 
 const adapters = input.map(Number).sort((a, b) => a - b)
@@ -34,7 +35,8 @@ function getNumPathsFrom(target){
 }
 
 let part2 = getNumPathsFrom(0);
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
 

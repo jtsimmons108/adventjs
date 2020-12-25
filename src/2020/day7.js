@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day7.txt');
 
 Array.prototype.sum = function() { return this.reduce((a, b) => a + b) };
@@ -50,6 +51,7 @@ input.forEach(line => {
 let part1 = Object.keys(allBags).filter(holdsShinyGoldBag).length;
 let part2 = getBagsHeld('shiny gold')
 
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

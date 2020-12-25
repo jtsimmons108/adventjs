@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day12.txt');
 
 const deltas = {0: [1, 0], 90: [0, 1], 180: [-1, 0], 270:[0, -1]}
@@ -54,5 +55,7 @@ input.forEach(line => {
 });
 let part1 = Math.abs(x1) + Math.abs(y1);
 let part2 = Math.abs(x2) + Math.abs(y2);
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

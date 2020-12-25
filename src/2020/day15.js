@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const nums = utils.readInputAsString('../../inputs/2020/day15.txt')
                 .split(',')
                 .map(Number);
@@ -22,6 +23,7 @@ while (count < 30000000){
     prev = next;
 }
 let part2 = prev;
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);

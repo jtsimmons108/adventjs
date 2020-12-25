@@ -1,4 +1,5 @@
 const utils = require('../advent-utils');
+const start = new Date().getTime();
 const input = utils.readInputAsList('../../inputs/2020/day17.txt');
 
 const fields = ['x', 'y', 'z', 'w'];
@@ -68,6 +69,7 @@ input.forEach((line, r) => {
 
 let part1 = findActiveCubes(active3D, 6);
 let part2 = findActiveCubes(active4D, 6);
-
+const end = new Date().getTime();
+console.log('Run Time:', end - start);
 console.log('Part 1:', part1);
 console.log('Part 2:', part2);
